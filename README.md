@@ -1,1 +1,212 @@
-# baitaplon
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý Thói quen Học tập</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS riêng -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Jumbotron -->
+    <div class="hero text-center">
+        <h1>Quản lý Thói quen Học tập & Kỷ luật</h1>
+
+        <p class="mt-3">
+            Kỷ luật là chìa khóa tạo nên thành công bền vững.
+        </p>
+    </div>
+
+    <!-- Ảnh cá nhân -->
+    <div class="row mt-4">
+
+        <div class="col-md-6">
+            <img src="z7862032497682_6d766c1f0fb6577f527a163cb1762ce5.jpg" class="img-fluid">
+        </div>
+
+        <div class="col-md-6">
+            <img src="z7862032503560_91a87900f2633f86b8d880decab883a4.jxl" class="img-fluid">
+        </div>
+
+    </div>
+
+    <!-- Card thói quen -->
+    <h2 class="text-center mt-5 mb-3">Thói quen tốt</h2>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="card habit-card shadow">
+                <div class="card-body">
+                    <h5>📚 Học bài đúng giờ</h5>
+                    <p>Giúp tiếp thu kiến thức hiệu quả hơn.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card habit-card shadow">
+                <div class="card-body">
+                    <h5>⏰ Dậy sớm</h5>
+                    <p>Tạo năng lượng tích cực cho ngày mới.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card habit-card shadow">
+                <div class="card-body">
+                    <h5>🏃 Tập thể dục</h5>
+                    <p>Giữ sức khỏe và tinh thần minh mẫn.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Form -->
+    <div class="form-section">
+
+        <h2 class="text-center mb-4">Form Quản lý Thói quen</h2>
+
+        <form id="habitForm">
+
+            <div class="mb-3">
+                <label>Mã số sinh viên</label>
+                <input type="text" id="mssv" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label>Email</label>
+                <input type="email" id="email" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label>Tên thói quen</label>
+                <input type="text" id="habit" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label>Thời gian thực hiện</label>
+                <input type="date" id="time" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label>Thời lượng (ngày)</label>
+                <input type="number" id="duration" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label>Ghi chú</label>
+                <textarea id="note" class="form-control"></textarea>
+            </div>
+
+            <button class="btn btn-primary">
+                Thêm dữ liệu
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- Bảng dữ liệu -->
+    <table class="table table-bordered mt-5">
+
+        <thead class="table-dark">
+            <tr>
+                <th>MSSV</th>
+                <th>Email</th>
+                <th>Thói quen</th>
+                <th>Ngày</th>
+                <th>Thời lượng</th>
+                <th>Ghi chú</th>
+            </tr>
+        </thead>
+
+        <tbody id="tableBody"></tbody>
+
+    </table>
+
+    <!-- Trang Debug -->
+    <div class="debug-section">
+
+        <h2 class="text-center mb-4">Trang Debug</h2>
+
+        <div class="card mb-4">
+
+            <div class="card-header bg-danger text-white">
+                Đoạn mã gốc
+            </div>
+
+            <div class="card-body">
+
+<pre>
+function checkEmail(email) {
+if (email.includes("@dhcd.edu.vn") == false) {
+alert("Email không hợp lệ");
+} else {
+console.log("Email đúng định dạng");
+}
+
+}
+</pre>
+
+            </div>
+        </div>
+
+        <div class="card">
+
+            <div class="card-header bg-success text-white">
+                Đoạn mã đã sửa
+            </div>
+
+            <div class="card-body">
+
+<pre>
+// Hàm kiểm tra email
+function checkEmail(email) {
+
+    // Xóa khoảng trắng dư
+    email = email.trim();
+
+    /*
+    Lỗi 1:
+    includes() chỉ kiểm tra chuỗi có chứa ký tự.
+    Nên dùng endsWith() để kiểm tra đúng đuôi email.
+    */
+
+    if (!email.endsWith("@dhcd.edu.vn")) {
+
+        alert("Email không hợp lệ");
+
+        return false;
+
+    } else {
+
+        console.log("Email đúng định dạng");
+
+        return true;
+    }
+}
+</pre>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- JS riêng -->
+<script src="script.js"></script>
+
+</body>
+</html>
